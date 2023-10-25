@@ -1,7 +1,5 @@
 # Cordova Plugin for accessing the Cordova Intent and handling onNewIntent (Android Only)
 
-__This plugin is not longer maintained.__
-
 This plugin allows you to add functionality for receiving content sent from other apps. To enable receiving sent content add the following XML to the MainActivity section of your AndroidManifest.xml
 
 ```xml
@@ -87,14 +85,6 @@ Setting the launch mode to "singleTask" ensures that your app cannot run in mult
 </activity>
 ```
 
-Cordova >= 6.0.0 apparently requires the launchMode to be set in ``config.xml`` as well:
-```xml
-<platform name="android">
-    ...
-    <preference name="AndroidLaunchMode" value="singleTask"/>
-</platform>
-```
-
 ## Installation
 
 Add the plugin to your project using Cordova CLI:
@@ -119,10 +109,6 @@ window.plugins.intent.setNewIntentHandler(function (intent) {
 
 ```js
 window.plugins.intent.getCordovaIntent(function (intent) {}, function () {});
-```
-
-```js
-window.plugins.intent.getRealPathFromContentUrl(contentUrl, function (realPath) {}, function () {});
 ```
 
 ## Example Intent passed from plugin
@@ -162,9 +148,6 @@ While this example shows an JSON representation, you'll actually receive a ready
 ### getCordovaIntent() - Android
 Get limited access to intent properties
 
-### getRealPathFromContentUrl(contentUrl, successCallback, failureCallback) - Android
-Get the real path for the contentUrl
-
 ## Events
 
 ### setNewIntentHandler(method) - Android
@@ -187,22 +170,6 @@ document.addEventListener('deviceReady', function(){
     }, function () {
         console.log('Error');
     });
-}
-```
-
-#### Get real path from content URL
-
-```js
-document.addEventListener('deviceReady', function(){
-    window.plugins.intent.getRealPathFromContentUrl(
-        'content://media/external/images/media/81',
-        function (realPath) {
-            console.log(realPath);
-        }, 
-        function () {
-            console.log('Error');
-        }
-    );
 }
 ```
 
