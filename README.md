@@ -1,0 +1,1 @@
+# wazzup-cordova-plugin-intent
